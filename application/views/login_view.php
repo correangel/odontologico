@@ -1,25 +1,17 @@
-<?php 
+<div class="page-header">
+    <h1>Sistema Odontológico</h1>
+</div>
 
-	echo '<div class="page-header">
-			<h1>Sistema Odontológico</h1>
-		</div>';
-
-	echo form_open('login/process', 'class="form-signin"');
-	$field_array = array('Login', 'Senha');
-	
-	echo heading('Login', 2, 'class="form-signin-heading"');
-	
-	if($msg == 1) 
-		echo '<div class="alert alert-error"> <button type="button" class="close" data-dismiss="alert">&times;</button> Usuário ou senha inválidos. </div>';
-
-	echo form_input('username', '', 'title="Seu login no sistema" class="input-block-level" placeholder="Login"');
-
-	echo form_password('password', '', 'title="Sua senha de acesso" class="input-block-level" placeholder="Senha"');
-
-	echo form_submit('', 'Entrar', 'class="btn btn-large btn-primary"'); 
-	echo br();
-	
-	echo form_close(); 
-	
-/* End of file login_view.php */
-/* Location: ./system/application/views/login_view.php */
+<form class="form-signin" role="form" action="<?php echo base_url('index.php/login/process'); ?>" method="post">
+    <h2 class="form-signin-heading">Login</h2>
+    <?php
+        if($msg == 1) {
+		  echo '<div class="alert alert-danger"> <button type="button" class="close" data-dismiss="alert">&times;</button> Usuário ou senha inválidos. </div>';
+        }
+    ?>
+    <label for="username" class="sr-only">Login</label>
+    <input type="text" id="username" name="username" class="form-control" placeholder="Login" required autofocus>
+    <label for="password" class="sr-only">Password</label>
+    <input type="password" id="password" name="password" class="form-control" placeholder="Senha" required>
+    <button class="btn btn-lg btn-primary btn-block" type="submit">Entrar</button>
+</form>

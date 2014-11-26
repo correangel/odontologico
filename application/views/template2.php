@@ -23,21 +23,16 @@
 	</head>
 	
 	<body>
-		
-		<div id="wrap">
 				
-			<div class="container">
-				<?php $this->load->view($include);?>
-			</div>
-			
-			<div id="push"></div>	
+		<div class="container">
+			<?php $this->load->view($include);?>
 		</div>
 		
-		<div id="footer">
-			<div class="container">
-				<p class="muted credit">MVPDEV Sistemas Digitais - mvpdev@gmail.com</p>
-			</div>
-		</div>
+		<footer class="footer">
+            <div class="container">
+                <p class="text-muted">MVPDEV Sistemas Digitais - mvpdev@gmail.com</p>
+            </div>
+        </footer>
 		
 	</body>
 </html>

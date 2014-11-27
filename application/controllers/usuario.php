@@ -83,29 +83,11 @@ class Usuario extends CI_Controller {
 	function listing()
 	{
 		$this->load->model('MUsuario','',TRUE);
-		$qry = $this->MUsuario->listUsuario();
-		$table = $this->table->generate($qry);
-		$tmpl = array ( 'table_open'  => '<table id="tabela" class="table table-striped table-bordered table-hover">' );
-		$this->table->set_template($tmpl);
-		$this->table->set_empty("&nbsp;"); 
-		//$this->table->set_heading('Editar', 'Inativa', 'Login', 'Setor', 'Perfil');
-		$this->table->set_heading('Editar', 'Inativa', 'Login', 'Perfil');
-		$table_row = array();
-		foreach ($qry->result() as $usuario)
-		{
-			$table_row = NULL;
-			$table_row[] = anchor('usuario/edit/' . $usuario->id_usuario, '<span class="ui-icon ui-icon-pencil"></span>');
-			$table_row[] = anchor('usuario/inativa/' . $usuario->id_usuario, '<span class="ui-icon ui-icon-minusthick"></span>');
-			$table_row[] = $usuario->login;
-			//$table_row[] = $usuario->nome_setor;
-			$table_row[] = $usuario->nome_perfil;
-			$this->table->add_row($table_row);
-		}    
-		$table = $this->table->generate();
+		$data['usuarios'] = $this->MUsuario->listUsuario();
 		$data['title'] = "Listagem de Usuários - Odontológico";
 		$data['headline'] = "Listagem de Usuários";
 		$data['include'] = 'usuario_listing';
-		$data['data_table'] = $table;
+		
 		$this->load->view('template', $data);
 	}
 	

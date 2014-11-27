@@ -1,40 +1,36 @@
-﻿<?php 
+﻿<form class="form-cadastro" role="form" action="<?php echo base_url('index.php/usuario/update'); ?>" method="post">
 
-	echo form_open('usuario/update', 'class="form-cadastro"');
-	$field_array = array('Login', 'Senha', 'Setor', 'Perfil');
+	<h3 class="form-cadastro-heading"><?php echo $headline ?></h3>
 	
-	echo heading($headline, 3, 'class="form-cadastro-heading"');
-	echo br();
+	<input type="hidden" name="id_usuario" value="<?php echo $usuario[0]->id_usuario ?>" >
 	
-	echo form_hidden('id_usuario', $usuario[0]->id_usuario);
-	
-	echo form_input('login', $usuario[0]->login, 'title="Login do usuário no sistema" class="required input-block-level input-large" placeholder="Login"');
-	echo br();
-	
-	echo form_password('senha', $usuario[0]->senha, 'title="Senha para o usuário" class="required input-block-level input-large" placeholder="Senha"');
-	echo br();
-	
-	echo ('<select name="setor" title="Setor que o usuário está alocado" class="required input-block-level input-large">');
-	foreach($setores->result() as $setor):
-		echo ('<option value="'.$setor->id_setor.'"'); 
-			if($setor->id_setor == $usuario[0]->setor) 
-				echo ('selected="selected"');
-			echo('>'.$setor->nome_setor.'</option>');
-	endforeach;
-	echo ('</select>');
-	
-	echo ('<select name="perfil" title="Perfil do usuário no sistema" class="required input-block-level input-large">');
-	foreach($perfis->result() as $perfil):
-		echo ('<option value="'.$perfil->nivel.'"');
-			if($perfil->nivel == $usuario[0]->perfil)
-				echo('selected="selected"');
-			echo('>'.$perfil->nome_perfil.'</option>');
-	endforeach;
-	echo ('</select>');
-	echo br();
-	
-	echo form_submit('', 'Atualizar', 'class="btn btn-primary"'); 
-	echo form_close();
-	
-/* End of file usuario_edit.php */
-/* Location: ./system/application/views/usuario_edit.php */
+	<div class="form-group has-feedback">
+		<label for="login" class="sr-only">Login</label>
+    	<input type="text" id="login" name="login" value="<?php echo $usuario[0]->login; ?>" class="form-control" placeholder="Login" required autofocus>
+    	<span class="glyphicon glyphicon-user form-control-feedback" aria-hidden="true"></span>
+    </div>
+    
+    <div class="form-group has-feedback">
+    	<label for="password" class="sr-only">Senha</label>
+    	<input type="password" id="password" name="senha" value="<?php echo $usuario[0]->senha; ?>" class="form-control" placeholder="Senha" required>
+    	<span class="glyphicon glyphicon-lock form-control-feedback" aria-hidden="true"></span>
+    </div>
+    
+    <div class="form-group">
+	    <select name="perfil" class="form-control" required>
+	    	<option value="">Escolha um perfil</option>
+	    	<option></option>
+		    <?php 
+			    foreach($perfis->result() as $perfil):
+					echo ('<option value="'.$perfil->id_perfil.'"');
+						if($perfil->id_perfil == $usuario[0]->perfil)
+							echo('selected="selected"');
+						echo('>'.$perfil->nome_perfil.'</option>');
+				endforeach;
+			?>
+	    </select>
+	</div>
+    
+    <button type="submit" class="btn btn-primary">Atualizar</button>
+
+</form>

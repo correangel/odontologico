@@ -7,20 +7,20 @@
 		
 		<!-- CSS -->
 		<link rel="stylesheet" href="<?php echo base_url(); ?>assets/css/estilo.css" type="text/css" media="screen" charset="utf-8" />
-		<link rel="stylesheet" href="<?php echo base_url(); ?>assets/css/jquery.dataTables.css" type="text/css" media="screen" charset="utf-8" />
-		<link rel="stylesheet" href="<?php echo base_url(); ?>assets/css/jquery-ui-1.8.10.custom.css" type="text/css" media="screen" charset="utf-8" />
 		<link rel="stylesheet" href="<?php echo base_url(); ?>assets/css/bootstrap.min.css" type="text/css" media="screen" charset="utf-8" />
-        <!--<link rel="stylesheet" href="<?php echo base_url(); ?>assets/css/bootstrap-theme.min.css" type="text/css" media="screen" charset="utf-8" />-->
-		<link rel="stylesheet" href="<?php echo base_url(); ?>assets/css/TableTools.css" type="text/css" media="screen" charset="utf-8" />
-
+		<link rel="stylesheet" href="<?php echo base_url(); ?>assets/css/jquery.dataTables.min.css" type="text/css" media="screen" charset="utf-8" />
+		<link rel="stylesheet" href="<?php echo base_url(); ?>assets/css/dataTables.tableTools.min.css" type="text/css" media="screen" charset="utf-8" />
+		<link rel="stylesheet" href="<?php echo base_url(); ?>assets/css/dataTables.bootstrap.css" type="text/css" media="screen" charset="utf-8" />
+		
+		
 		<!-- JavaScript -->
-		<script type="text/javascript" src="<?php echo base_url() . 'assets/js/jquery-1.9.1.js' ?>"></script>
-		<script type="text/javascript" src="<?php echo base_url() . 'assets/js/jquery.dataTables.min.js' ?>"></script>
-		<script type="text/javascript" src="<?php echo base_url() . 'assets/js/jquery-ui-1.10.1.custom.min.js' ?>"></script>
+		<script type="text/javascript" src="<?php echo base_url() . 'assets/js/jquery-1.11.1.min.js' ?>"></script>
 		<script type="text/javascript" src="<?php echo base_url() . 'assets/js/jquery.maskedinput.js' ?>"></script>
-		<script type="text/javascript" src="<?php echo base_url() . 'assets/js/scripts.js' ?>"></script>
-		<script type="text/javascript" src="<?php echo base_url() . 'assets/js/TableTools.min.js' ?>"></script>
 		<script type="text/javascript" src="<?php echo base_url() . 'assets/js/bootstrap.min.js' ?>"></script>
+		<script type="text/javascript" src="<?php echo base_url() . 'assets/js/jquery.dataTables.min.js' ?>"></script>
+		<script type="text/javascript" src="<?php echo base_url() . 'assets/js/dataTables.tableTools.min.js' ?>"></script>
+		<script type="text/javascript" src="<?php echo base_url() . 'assets/js/dataTables.bootstrap.js' ?>"></script>
+		<script type="text/javascript" src="<?php echo base_url() . 'assets/js/scripts.js' ?>"></script>
 
 	</head>
 	
@@ -86,8 +86,12 @@
                             <li <?php if($this->uri->segment(1) == 'estoque' && $this->uri->segment(2) == 'listing'){ echo 'class="active"'; } else { echo ''; } ?> ><?php echo anchor('estoque/listing', 'Estoque'); ?></li>
                         </ul>
                         <ul class="nav navbar-nav navbar-right">
-                            <p class="navbar-text"><?php echo $this->session->userdata('login'); ?></p>
-                            <li><?php echo anchor('odontologico/sair', 'Sair'); ?></li>
+                        	<li class="dropdown">
+                        		<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><span class="glyphicon glyphicon-user"></span> <?php echo $this->session->userdata('login'); ?> <span class="caret"></span></a>
+                        		<ul class="dropdown-menu" role="menu">
+                            		<li><?php echo anchor('odontologico/sair', 'Sair'); ?></li>
+                            	</ul>
+                            </li>
                         </ul>
                     </div><!-- .navbar-collapse -->
                 <!--</div>-->

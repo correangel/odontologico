@@ -20,8 +20,8 @@ class Usuario extends CI_Controller {
         $data['include'] = "usuario_add";
 		$this->load->model('MUsuario', '', TRUE);
 		$data['usuarios'] = $this->MUsuario->listUsuario();
-		$this->load->model('MSetor', '', TRUE);
-		$data['setores'] = $this->MSetor->listSetor();
+		//$this->load->model('MSetor', '', TRUE);
+		//$data['setores'] = $this->MSetor->listSetor();
 		$this->load->model('MPerfil', '', TRUE);
 		$data['perfis'] = $this->MPerfil->listPerfil();
         $this->load->view('template', $data);
@@ -42,8 +42,8 @@ class Usuario extends CI_Controller {
 		$data['title'] = "Modificar Usuários - Odontológico";
 		$data['headline'] = "Edição de Usuários";
 		$data['include'] = "usuario_edit";
-		$this->load->model('MSetor', '', TRUE);
-		$data['setores'] = $this->MSetor->listSetor();
+		//$this->load->model('MSetor', '', TRUE);
+		//$data['setores'] = $this->MSetor->listSetor();
 		$this->load->model('MPerfil', '', TRUE);
 		$data['perfis'] = $this->MPerfil->listPerfil();
 		$this->load->view('template', $data);
@@ -88,7 +88,8 @@ class Usuario extends CI_Controller {
 		$tmpl = array ( 'table_open'  => '<table id="tabela" class="table table-striped table-bordered table-hover">' );
 		$this->table->set_template($tmpl);
 		$this->table->set_empty("&nbsp;"); 
-		$this->table->set_heading('Editar', 'Inativa', 'Login', 'Setor', 'Perfil');
+		//$this->table->set_heading('Editar', 'Inativa', 'Login', 'Setor', 'Perfil');
+		$this->table->set_heading('Editar', 'Inativa', 'Login', 'Perfil');
 		$table_row = array();
 		foreach ($qry->result() as $usuario)
 		{
@@ -96,7 +97,7 @@ class Usuario extends CI_Controller {
 			$table_row[] = anchor('usuario/edit/' . $usuario->id_usuario, '<span class="ui-icon ui-icon-pencil"></span>');
 			$table_row[] = anchor('usuario/inativa/' . $usuario->id_usuario, '<span class="ui-icon ui-icon-minusthick"></span>');
 			$table_row[] = $usuario->login;
-			$table_row[] = $usuario->nome_setor;
+			//$table_row[] = $usuario->nome_setor;
 			$table_row[] = $usuario->nome_perfil;
 			$this->table->add_row($table_row);
 		}    
@@ -116,14 +117,15 @@ class Usuario extends CI_Controller {
 		$tmpl = array ( 'table_open'  => '<table id="tabela" class="table table-striped table-bordered table-hover">' );
 		$this->table->set_template($tmpl);
 		$this->table->set_empty("&nbsp;"); 
-		$this->table->set_heading('Ativa', 'Login', 'Setor', 'Perfil');
+		//$this->table->set_heading('Ativa', 'Login', 'Setor', 'Perfil');
+		$this->table->set_heading('Ativa', 'Login', 'Perfil');
 		$table_row = array();
 		foreach ($qry->result() as $usuario)
 		{
 			$table_row = NULL;
 			$table_row[] = anchor('usuario/ativa/' . $usuario->id_usuario, '<span class="ui-icon ui-icon-plusthick"></span>');
 			$table_row[] = $usuario->login;
-			$table_row[] = $usuario->nome_setor;
+			//$table_row[] = $usuario->nome_setor;
 			$table_row[] = $usuario->nome_perfil;
 			$this->table->add_row($table_row);
 		}    

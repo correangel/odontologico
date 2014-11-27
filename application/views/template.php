@@ -1,5 +1,5 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<!DOCTYPE html>
+<html>
 	<head>
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<meta http-equiv="content-type" content="text/html; charset=UTF-8" />
@@ -25,7 +25,7 @@
 	</head>
 	
 	<body>
-        <div class="navbar navbar-fixed-top" role="navigation">
+        <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
             <!--<div class="navbar-inner">-->
                 <div class="container">
                     <div class="navbar-header">
@@ -38,10 +38,9 @@
                     </div>
                     <div id="navbar" class="navbar-collapse collapse">
                         <ul class="nav navbar-nav">
-                            <li class="divider-vertical"></li>
                             <li <?php if($this->uri->segment(1) == 'odontologico' && $this->uri->segment(2) == 'index'){ echo 'class="active"'; } else { echo ''; } ?> ><?php echo anchor('odontologico/index', 'Inicial'); ?></li>
                             <li class="dropdown <?php if($this->uri->segment(1) == 'usuario'){ echo 'active'; } else { echo ''; } ?>">
-                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Usuários <b class="caret"></b></a>
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Usuários <span class="caret"></span></a>
                                 <ul class="dropdown-menu" role="menu">
                                     <li><?php echo anchor('usuario/listing', 'Listagem'); ?></li>
                                     <li><?php echo anchor('usuario/add', 'Cadastrar Usuário'); ?></li>
@@ -50,7 +49,7 @@
                                 </ul>
                             </li>
                             <li class="dropdown <?php if($this->uri->segment(1) == 'produto'){ echo 'active'; } else { echo ''; } ?>">
-                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Produtos <b class="caret"></b></a>
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Produtos <span class="caret"></span></a>
                                 <ul class="dropdown-menu" role="menu">
                                     <li><?php echo anchor('produto/listing', 'Listagem'); ?></li>
                                     <li><?php echo anchor('produto/add', 'Cadastrar Produto'); ?></li>
@@ -60,7 +59,7 @@
                                 </ul>
                             </li>
                             <li class="dropdown <?php if($this->uri->segment(1) == 'fornecedor'){ echo 'active'; } else { echo ''; } ?>">
-                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Fornecedores <b class="caret"></b></a>
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Fornecedores <span class="caret"></span></a>
                                 <ul class="dropdown-menu" role="menu">
                                     <li><?php echo anchor('fornecedor/listing', 'Listagem'); ?></li>
                                     <li><?php echo anchor('fornecedor/add', 'Cadastrar Fornecedor'); ?></li>
@@ -69,14 +68,14 @@
                                 </ul>
                             </li>
                             <li class="dropdown <?php if($this->uri->segment(1) == 'notafiscal'){ echo 'active'; } else { echo ''; } ?>">
-                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Nota Fiscal <b class="caret"></b></a>
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Nota Fiscal <span class="caret"></span></a>
                                 <ul class="dropdown-menu" role="menu">
                                     <li><?php echo anchor('notafiscal/listing', 'Listagem'); ?></li>
                                     <li><?php echo anchor('notafiscal/add', 'Cadastrar Nota Fiscal'); ?></li>
                                 </ul>
                             </li>
                             <li class="dropdown <?php if($this->uri->segment(1) == 'pedido'){ echo 'active'; } else { echo ''; } ?>">
-                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Pedido <b class="caret"></b></a>
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Pedido <span class="caret"></span></a>
                                 <ul class="dropdown-menu" role="menu">
                                     <li><?php echo anchor('pedido/listing', 'Listagem de Pedidos'); ?></li>
                                     <li><?php echo anchor('pedido/add', 'Cadastrar Pedido'); ?></li>
@@ -85,12 +84,15 @@
                                 </ul>
                             </li>
                             <li <?php if($this->uri->segment(1) == 'estoque' && $this->uri->segment(2) == 'listing'){ echo 'class="active"'; } else { echo ''; } ?> ><?php echo anchor('estoque/listing', 'Estoque'); ?></li>
-                            <li><?php echo anchor('estoque/sair', 'Sair'); ?></li>
                         </ul>
-                    </div>
+                        <ul class="nav navbar-nav navbar-right">
+                            <p class="navbar-text"><?php echo $this->session->userdata('login'); ?></p>
+                            <li><?php echo anchor('odontologico/sair', 'Sair'); ?></li>
+                        </ul>
+                    </div><!-- .navbar-collapse -->
                 <!--</div>-->
-            </div>
-        </div>
+            </div><!-- .container -->
+        </nav>
 
         <div class="container">
             <?php $this->load->view($include);?>

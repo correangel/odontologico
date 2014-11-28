@@ -2,13 +2,11 @@
 
 	class MUsuario extends CI_Model{
 
-		function addUsuario($data)
-		{
+		function addUsuario($data){
 			$this->db->insert('usuario', $data);
 		}
 
-		function listUsuario()
-		{
+		function listUsuario(){
 			//$this->db->join('setor', 'setor.id_setor = usuario.setor');
 			$this->db->join('perfil', 'perfil.id_perfil = usuario.perfil');
 			$this->db->where('ativo = "S"');
@@ -16,8 +14,7 @@
 			return $this->db->get('usuario');
 		}
 		
-		function listUsuarioInativo()
-		{
+		function listUsuarioInativo(){
 			//$this->db->join('setor', 'setor.id_setor = usuario.setor');
 			$this->db->join('perfil', 'perfil.id_perfil = usuario.perfil');
 			$this->db->where('ativo = "N"');
@@ -25,32 +22,27 @@
 			return $this->db->get('usuario');
 		}
 
-		function getUsuario($id)
-		{
+		function getUsuario($id){
 			return $this->db->get_where('usuario', array('id_usuario'=> $id));
 		}
 
-		function updateUsuario($id, $data)
-		{
+		function updateUsuario($id, $data){
 			$this->db->where('id_usuario', $id);
 			$this->db->update('usuario', $data); 
 		}
 
-		function deleteUsuario($id)
-		{
+		function deleteUsuario($id){
 			$this->db->where('id_usuario', $id);
 			$this->db->delete('usuario'); 
 		}
 		
-		function inativarUsuario($id)
-		{
+		function inativarUsuario($id){
 			$data = array('ativo'=>'N');
 			$this->db->where('id_usuario', $id);
 			$this->db->update('usuario', $data); 
 		}
 		
-		function ativarUsuario($id)
-		{
+		function ativarUsuario($id){
 			$data = array('ativo'=>'S');
 			$this->db->where('id_usuario', $id);
 			$this->db->update('usuario', $data); 

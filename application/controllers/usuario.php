@@ -17,7 +17,7 @@ class Usuario extends CI_Controller {
     {
         $data['title'] = "Cadastro de Usuário - Odontológico";
         $data['headline'] = "Cadastro de Usuários";
-        $data['include'] = "usuario_add";
+        $data['include'] = "usuario/usuario_add";
 		$this->load->model('MUsuario', '', TRUE);
 		$data['usuarios'] = $this->MUsuario->listUsuario();
 		$this->load->model('MPerfil', '', TRUE);
@@ -39,7 +39,7 @@ class Usuario extends CI_Controller {
 		$data['usuario'] = $this->MUsuario->getUsuario($id)->result();
 		$data['title'] = "Modificar Usuários - Odontológico";
 		$data['headline'] = "Edição de Usuários";
-		$data['include'] = "usuario_edit";
+		$data['include'] = "usuario/usuario_edit";
 		$this->load->model('MPerfil', '', TRUE);
 		$data['perfis'] = $this->MPerfil->listPerfil();
 		$this->load->view('template', $data);
@@ -82,7 +82,7 @@ class Usuario extends CI_Controller {
 		$data['usuarios'] = $this->MUsuario->listUsuario();
 		$data['title'] = "Listagem de Usuários - Odontológico";
 		$data['headline'] = "Listagem de Usuários";
-		$data['include'] = 'usuario_listing';
+		$data['include'] = 'usuario/usuario_listing';
 		$this->load->view('template', $data);
 	}
 	
@@ -92,7 +92,7 @@ class Usuario extends CI_Controller {
 		$data['usuarios'] = $this->MUsuario->listUsuarioInativo();
 		$data['title'] = "Listagem de Usuários - Odontológico";
 		$data['headline'] = "Listagem de Usuários";
-		$data['include'] = 'usuario_listing_ativa';
+		$data['include'] = 'usuario/usuario_listing_ativa';
 		$this->load->view('template', $data);
 	}
 }

@@ -23,7 +23,7 @@ class Odontologico extends CI_Controller {
 	{
         $data['title'] = "Página Inicial - Odontológico";
         $data['headline'] = "Odontológico";
-        $data['include'] = "odontologico_index";
+        $data['include'] = "odontologico/odontologico_index";
 	    $this->load->view('template', $data);
 	}
 	

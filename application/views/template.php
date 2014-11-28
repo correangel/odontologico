@@ -44,48 +44,40 @@
                                     <li><?php echo anchor('usuario/listing_inativos', 'Ativar Usuário'); ?></li>
                                 </ul>
                             </li>
-                            <li class="dropdown <?php if($this->uri->segment(1) == 'produto'){ echo 'active'; } else { echo ''; } ?>">
-                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Produtos <span class="caret"></span></a>
+                            <li class="dropdown <?php if($this->uri->segment(1) == 'paciente'){ echo 'active'; } else { echo ''; } ?>">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Pacientes <span class="caret"></span></a>
                                 <ul class="dropdown-menu" role="menu">
-                                    <li><?php echo anchor('produto/listing', 'Listagem'); ?></li>
-                                    <li><?php echo anchor('produto/add', 'Cadastrar Produto'); ?></li>
-                                    <li class="divider"></li>
-                                    <li><?php echo anchor('apresentacao/add', 'Cadastrar Apresentação'); ?></li>
-                                    <li><?php echo anchor('categoria/add', 'Cadastrar Categoria'); ?></li>
+                                    <li><?php echo anchor('paciente/listing', 'Listagem'); ?></li>
+                                    <li><?php echo anchor('paciente/add', 'Cadastrar Paciente'); ?></li>
                                 </ul>
                             </li>
-                            <li class="dropdown <?php if($this->uri->segment(1) == 'fornecedor'){ echo 'active'; } else { echo ''; } ?>">
-                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Fornecedores <span class="caret"></span></a>
+                            <li class="dropdown <?php if($this->uri->segment(1) == 'convenio'){ echo 'active'; } else { echo ''; } ?>">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Convênios <span class="caret"></span></a>
                                 <ul class="dropdown-menu" role="menu">
-                                    <li><?php echo anchor('fornecedor/listing', 'Listagem'); ?></li>
-                                    <li><?php echo anchor('fornecedor/add', 'Cadastrar Fornecedor'); ?></li>
-                                    <li class="divider"></li>
-                                    <li><?php echo anchor('fornecedor/listing_inativos', 'Ativar Fornecedor'); ?></li>
+                                    <li class="inactive"><?php echo anchor('convenio/listing', 'Listagem'); ?></li>
+                                    <li class="inactive"><?php echo anchor('convenio/add', 'Cadastrar Convênio'); ?></li>
                                 </ul>
                             </li>
-                            <li class="dropdown <?php if($this->uri->segment(1) == 'notafiscal'){ echo 'active'; } else { echo ''; } ?>">
-                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Nota Fiscal <span class="caret"></span></a>
+                            <li class="dropdown <?php if($this->uri->segment(1) == 'agenda'){ echo 'active'; } else { echo ''; } ?>">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Agenda <span class="caret"></span></a>
                                 <ul class="dropdown-menu" role="menu">
-                                    <li><?php echo anchor('notafiscal/listing', 'Listagem'); ?></li>
-                                    <li><?php echo anchor('notafiscal/add', 'Cadastrar Nota Fiscal'); ?></li>
+                                    <li class="inactive"><?php echo anchor('agenda/listing', 'Agenda'); ?></li>
                                 </ul>
                             </li>
-                            <li class="dropdown <?php if($this->uri->segment(1) == 'pedido'){ echo 'active'; } else { echo ''; } ?>">
-                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Pedido <span class="caret"></span></a>
+                            <li class="dropdown <?php if($this->uri->segment(1) == 'financeiro'){ echo 'active'; } else { echo ''; } ?>">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Financeiro <span class="caret"></span></a>
                                 <ul class="dropdown-menu" role="menu">
-                                    <li><?php echo anchor('pedido/listing', 'Listagem de Pedidos'); ?></li>
-                                    <li><?php echo anchor('pedido/add', 'Cadastrar Pedido'); ?></li>
-                                    <li class="divider"></li>
-                                    <li><?php echo anchor('itempedido/listing_itens', 'Listagem de Itens'); ?></li>
+                                    <li class="inactive"><?php echo anchor('financeiro/listing', 'Entradas'); ?></li>
+                                    <li class="inactive"><?php echo anchor('financeiro/add', 'Saídas'); ?></li>
+                                    <li class="inactive"><?php echo anchor('financeiro/listing_itens', 'Orçamentos'); ?></li>
                                 </ul>
                             </li>
-                            <li <?php if($this->uri->segment(1) == 'estoque' && $this->uri->segment(2) == 'listing'){ echo 'class="active"'; } else { echo ''; } ?> ><?php echo anchor('estoque/listing', 'Estoque'); ?></li>
                         </ul>
                         <ul class="nav navbar-nav navbar-right">
                         	<li class="dropdown">
                         		<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><span class="glyphicon glyphicon-user"></span> <?php echo $this->session->userdata('login'); ?> <span class="caret"></span></a>
                         		<ul class="dropdown-menu" role="menu">
-                            		<li><?php echo anchor('odontologico/sair', 'Sair'); ?></li>
+                            		<li><?php echo anchor('odontologico/sair', '<span class="glyphicon glyphicon-log-out"></span> Sair'); ?></li>
                             	</ul>
                             </li>
                         </ul>

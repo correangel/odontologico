@@ -16,15 +16,14 @@
 		</thead>
 		<tbody>
 			<?php
-			foreach ( $usuarios->result () as $usuario ) :
+			foreach ( $usuarios->result() as $usuario ) :
 				echo '<tr>';
 				echo '<td></td>';
 				echo '<td>' . $usuario->id_usuario . '</td>';
 				echo '<td>' . $usuario->login . '</td>';
 				echo '<td>' . $usuario->nome_perfil . '</td>';
 				echo '</tr>';
-			endforeach
-			;
+			endforeach;
 			?>
 	  </tbody>
 	</table>

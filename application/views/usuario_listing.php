@@ -20,8 +20,6 @@
 				echo '<tr>';
 				echo '<td></td>';
 				echo '<td>' . $usuario->id_usuario . '</td>';
-				// echo '<td>' . anchor('usuario/edit/' . $usuario->id_usuario, '<span class="glyphicon glyphicon-pencil"></span>') . '</td>';
-				// echo '<td>' . anchor('usuario/inativa/' . $usuario->id_usuario, '<span class="glyphicon glyphicon-minus"></span>') . '</td>';
 				echo '<td>' . $usuario->login . '</td>';
 				echo '<td>' . $usuario->nome_perfil . '</td>';
 				echo '</tr>';
@@ -44,11 +42,8 @@ $(document).ready(function(){
     }
 }).on("loaded.rs.jquery.bootgrid", function()
 {
-
-    /* Executes after data is loaded and rendered */
     grid.find(".command-edit").on("click", function(e)
     {
-    	//window.location("http://localhost/odontologico/index.php/usuario/edit/" + $(this).data("data-row-id"));
     	window.location.replace("edit/" + $(this).data("row-id"));
     }).end().find(".command-delete").on("click", function(e)
     {

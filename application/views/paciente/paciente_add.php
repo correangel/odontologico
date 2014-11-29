@@ -6,7 +6,7 @@
 		<h2><?php echo $headline ?></h3>
 	</div>
 	
-	<div class="panel panel-default">
+	<div class="panel panel-info">
 		<div class="panel-heading">
 			<h4 class="panel-title">Dados Básicos</h3>
 		</div>
@@ -44,10 +44,12 @@
 				<div class="form-group col-xs-4">
 					<label for="convenio">Convênio</label>
 				    <select name="convenio" class="form-control" required>
-				    	<option>Particular</option>
-				    	<option>Uniodonto</option>
-					    <option>Amil</option>
-					    <option>Bradesco</option>
+				    	<option></option>
+				    	<?php 
+						    foreach($convenios->result() as $convenio):
+								echo ('<option value="'.$convenio->idConvenios.'">'.$convenio->nome.'</option>');
+							endforeach;
+						?>
 				    </select>
 				</div>	
 			
@@ -112,7 +114,7 @@
 		</div><!-- /.panel-body -->
 	</div><!-- /.panel -->
 	
-	<div class="panel panel-default">
+	<div class="panel panel-info">
 		<div class="panel-heading">
 			<h4 class="panel-title">Endereço</h3>
 		</div>

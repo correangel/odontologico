@@ -19,12 +19,14 @@
 			$data['include'] = "paciente/paciente_add";
 			$this->load->model('MPaciente', '', TRUE);
 			$data['pacientes'] = $this->MPaciente->listPacientes();
+			$this->load->model('MConvenio', '', TRUE);
+			$data['convenios'] = $this->MConvenio->listConvenios();
 			$this->load->view('template', $data);
 		}
 		
 		function create(){
 			$this->load->model('MPaciente','',TRUE);
-			$id = $this->MPaciente->addPaciente($_POST);
+			$this->MPaciente->addPaciente($_POST);
 			redirect('paciente/listing', 'refresh');
 		}
 		

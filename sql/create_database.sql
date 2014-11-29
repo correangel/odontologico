@@ -120,7 +120,7 @@ ENGINE = InnoDB;
 -- -----------------------------------------------------
 -- Table `odontologico`.`Convenios_has_Pacientes`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `odontologico`.`Convenios_has_Pacientes` (
+CREATE TABLE IF NOT EXISTS `odontologico`.`Convenios_Pacientes` (
   `Convenios_idConvenios` INT NOT NULL,
   `Pacientes_idPacientes` INT NOT NULL,
   `codigoAssociado` VARCHAR(50) NULL,

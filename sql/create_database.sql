@@ -18,7 +18,7 @@ USE `odontologico` ;
 -- Table `odontologico`.`Pacientes`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `odontologico`.`Pacientes` (
-  `idPacientes` INT NOT NULL,
+  `idPacientes` INT NOT NULL AUTO_INCREMENT,
   `codigoLegado` INT NULL,
   `nome` VARCHAR(255) NULL,
   `dtNascimento` DATE NULL,
@@ -32,7 +32,7 @@ ENGINE = InnoDB;
 -- Table `odontologico`.`Telefones`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `odontologico`.`Telefones` (
-  `idTelefones` INT NOT NULL,
+  `idTelefones` INT NOT NULL AUTO_INCREMENT,
   `telefone` VARCHAR(30) NULL,
   `tipo` VARCHAR(20) NULL,
   `Pacientes_idPacientes` INT NOT NULL,
@@ -50,7 +50,7 @@ ENGINE = InnoDB;
 -- Table `odontologico`.`Endereços`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `odontologico`.`Endereços` (
-  `idEndereços` INT NOT NULL,
+  `idEndereços` INT NOT NULL AUTO_INCREMENT,
   `logradouro` VARCHAR(255) NULL,
   `numero` VARCHAR(7) NULL,
   `complemento` VARCHAR(100) NULL,
@@ -73,7 +73,7 @@ ENGINE = InnoDB;
 -- Table `odontologico`.`Convenios`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `odontologico`.`Convenios` (
-  `idConvenios` INT NOT NULL,
+  `idConvenios` INT NOT NULL AUTO_INCREMENT,
   `nome` VARCHAR(100) NULL,
   `diaPagamento` VARCHAR(2) NULL,
   `desconto` VARCHAR(3) NULL,
@@ -87,7 +87,7 @@ ENGINE = InnoDB;
 -- Table `odontologico`.`Anamneses`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `odontologico`.`Anamneses` (
-  `idAnamneses` INT NOT NULL,
+  `idAnamneses` INT NOT NULL AUTO_INCREMENT,
   `Pacientes_idPacientes` INT NOT NULL,
   `descricao` TEXT(65535) NULL,
   PRIMARY KEY (`idAnamneses`),
@@ -104,7 +104,7 @@ ENGINE = InnoDB;
 -- Table `odontologico`.`Odontogramas`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `odontologico`.`Odontogramas` (
-  `idOdontogramas` INT NOT NULL,
+  `idOdontogramas` INT NOT NULL AUTO_INCREMENT,
   `Pacientes_idPacientes` INT NOT NULL,
   `descricao` TEXT(65535) NULL,
   PRIMARY KEY (`idOdontogramas`),
@@ -118,10 +118,10 @@ ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
--- Table `odontologico`.`Convenios_has_Pacientes`
+-- Table `odontologico`.`Convenios_Pacientes`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `odontologico`.`Convenios_Pacientes` (
-  `Convenios_idConvenios` INT NOT NULL,
+  `Convenios_idConvenios` INT NOT NULL AUTO_INCREMENT,
   `Pacientes_idPacientes` INT NOT NULL,
   `codigoAssociado` VARCHAR(50) NULL,
   `ativo` ENUM('S', 'N') NULL,

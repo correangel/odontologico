@@ -55,7 +55,9 @@
 		function listPacientes(){
 			$this->db->join('convenios_pacientes', 'convenios_pacientes.Pacientes_idPacientes = pacientes.idPacientes');
 			$this->db->join('convenios', 'convenios.idConvenios = convenios_pacientes.Convenios_idConvenios');
-			return $this->db->get('pacientes');
+			$this->db->join('telefones', 'telefones.Pacientes_idPacientes = pacientes.idPacientes');
+			$this->db->limit(1);
+			return $this->db->get_where('pacientes', array('ativo'=>'S'));
 		}
 		
 		function getPaciente($id){
@@ -72,34 +74,37 @@
 		
 		function updatePaciente($id, $data){
 			
-			$pacientes = array(
+			$paciente = array(
 					'nome' => $data['nome'],
 					'dtNascimento' => $data['dtNascimento'],
 					'sexo' => $data['sexo'],
 					'email' => $data['email']
 			);
 			$this->db->where('idPacientes', $id);
-			$this->db->update('pacientes', $pacientes);
-				
+			$this->db->update('pacientes', $paciente);
+			
 			$telefones = array(
 					array(
+							'idTelefones' => $data['idTel1'],
 							'Pacientes_idPacientes' => $id,
 							'telefone' => $data['tel1'],
 							'tipo' => $data['tipoTel1']
 					),
 					array(
+							'idTelefones' => $data['idTel2'],
 							'Pacientes_idPacientes' => $id,
 							'telefone' => $data['tel2'],
 							'tipo' => $data['tipoTel2']
 					),
 					array(
+							'idTelefones' => $data['idTel3'],
 							'Pacientes_idPacientes' => $id,
 							'telefone' => $data['tel3'],
 							'tipo' => $data['tipoTel3']
 					)
 			);
 			//$this->db->where('Pacientes_idPacientes', $id);
-			$this->db->update_batch('telefones', $telefones, $id);
+			$this->db->update_batch('telefones', $telefones, 'idTelefones');
 				
 			$endereco = array(
 					'Pacientes_idPacientes' => $id,
@@ -113,14 +118,20 @@
 			);
 			$this->db->where('Pacientes_idPacientes', $id);
 			$this->db->update('enderecos', $endereco);
-				
+			
+			$this->db->where('Convenios_idConvenios', $data['convenioAntigo']);
+			$this->db->where('Pacientes_idPacientes', $id);
+			$this->db->update('convenios_pacientes', array('ativo' => 'N'));
+			
 			$convenio = array(
+					'Convenios_idConvenios' => $data['convenio'], 
+					'Pacientes_idPacientes' => $id, 
 					'codigoAssociado' => $data['codigoAssociado'],
 					'ativo' => 'S'
 			);
-			$this->db->where('Convenios_idConvenios', $data['convenio']);
-			$this->db->where('Pacientes_idPacientes', $id);
-			$this->db->update('convenios_pacientes', $convenio);
+			//$this->db->where('Convenios_idConvenios', $data['convenio']);
+			//$this->db->where('Pacientes_idPacientes', $id);
+			$this->db->insert('convenios_pacientes', $convenio);
 		}
 		
 		function deletePaciente($id){

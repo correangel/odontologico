@@ -7,13 +7,13 @@
 		class="table table-condensed table-hover table-striped">
 		<thead>
 			<tr>
-				<th data-column-id="commands" data-formatter="commands"
-					data-sortable="false">Opções</th>
+				<th data-column-id="commands" data-formatter="commands"	data-sortable="false">Opções</th>
 				<th data-column-id="id" data-type="numeric">ID</th>
 				<th data-column-id="nome" data-order="asc">Nome</th>
 				<th data-column-id="sexo">Sexo</th>
 				<th data-column-id="nome-convenio">Convênio</th>
 				<th data-column-id="codigo-convenio">Número</th>
+				<th data-column-id="telefone1">Telefone</th>
 				<th data-column-id="email">Email</th>
 				<th data-column-id="data-nascimento">Data de Nascimento</th>
 			</tr>
@@ -28,6 +28,7 @@
 				echo '<td>' . $paciente->sexo . '</td>';
 				echo '<td>' . $paciente->nomeConvenio . '</td>';
 				echo '<td>' . $paciente->codigoAssociado . '</td>';
+				echo '<td>' . $paciente->telefone . '</td>';
 				echo '<td>' . $paciente->email . '</td>';
 				echo '<td>' . $paciente->dtNascimento . '</td>';
 				echo '</tr>';

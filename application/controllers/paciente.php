@@ -34,6 +34,9 @@
 			$id = $this->uri->segment(3);
 			$this->load->model('MPaciente', '', TRUE);
 			$data['paciente'] = $this->MPaciente->getPaciente($id)->result();
+			$data['telefone'] = $this->MPaciente->getTelefones($id)->result();
+			$this->load->model('MConvenio', '', TRUE);
+			$data['convenios'] = $this->MConvenio->listConvenios();
 			$data['title'] = "Modificar Pacientes - Odontológico";
 			$data['headline'] = "Edição de Pacientes";
 			$data['include'] = "paciente/paciente_edit";

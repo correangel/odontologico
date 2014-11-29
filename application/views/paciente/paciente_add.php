@@ -1,5 +1,3 @@
-
-
 <form role="form" action="<?php echo base_url('index.php/paciente/create'); ?>" method="post">
 
 	<div class="page-header">
@@ -47,7 +45,7 @@
 				    	<option></option>
 				    	<?php 
 						    foreach($convenios->result() as $convenio):
-								echo ('<option value="'.$convenio->idConvenios.'">'.$convenio->nome.'</option>');
+								echo ('<option value="'.$convenio->idConvenios.'">'.$convenio->nome_convenio.'</option>');
 							endforeach;
 						?>
 				    </select>
@@ -69,15 +67,15 @@
 			
 				<div class="form-group col-xs-2">
 					<label for="tel1">Telefone 1</label>
-			    	<input type="tel" id="tel1" name="tel1" class="form-control telefone" placeholder="Telefone" pattern='[\(]\d{2}[\)]\d{4}[\-]\d{4}'>
+			    	<input type="tel" id="tel1" name="tel1" class="form-control telefone" placeholder="Telefone">
 				</div>
 				
 				<div class="form-group col-xs-2">
 					<label for="tipoTel1">Tipo</label>
 				    <select name="tipoTel1" class="form-control">
-				    	<option>Celular</option>
-					    <option>Residencial</option>
-					    <option>Comercial</option>
+				    	<option value="Celular">Celular</option>
+					    <option value="Residencial">Residencial</option>
+					    <option value="Comercial">Comercial</option>
 				    </select>
 				</div>
 				
@@ -89,9 +87,9 @@
 				<div class="form-group col-xs-2">
 					<label for="tipoTel2">Tipo</label>
 				    <select name="tipoTel2" class="form-control">
-				    	<option>Celular</option>
-					    <option>Residencial</option>
-					    <option>Comercial</option>
+				    	<option value="Celular">Celular</option>
+					    <option value="Residencial">Residencial</option>
+					    <option value="Comercial">Comercial</option>
 				    </select>
 				</div>
 				
@@ -103,9 +101,9 @@
 				<div class="form-group col-xs-2">
 					<label for="tipoTel3">Tipo</label>
 				    <select name="tipoTel3" class="form-control">
-				    	<option>Celular</option>
-					    <option>Residencial</option>
-					    <option>Comercial</option>
+				    	<option value="Celular">Celular</option>
+					    <option value="Residencial">Residencial</option>
+					    <option value="Comercial">Comercial</option>
 				    </select>
 				</div>
 			

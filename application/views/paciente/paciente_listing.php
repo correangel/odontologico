@@ -11,9 +11,11 @@
 					data-sortable="false">Opções</th>
 				<th data-column-id="id" data-type="numeric">ID</th>
 				<th data-column-id="nome" data-order="asc">Nome</th>
-				<th data-column-id="data-nascimento">Data de Nascimento</th>
 				<th data-column-id="sexo">Sexo</th>
+				<th data-column-id="nome-convenio">Convênio</th>
+				<th data-column-id="codigo-convenio">Número</th>
 				<th data-column-id="email">Email</th>
+				<th data-column-id="data-nascimento">Data de Nascimento</th>
 			</tr>
 		</thead>
 		<tbody>
@@ -21,11 +23,13 @@
 			foreach ( $pacientes->result() as $paciente ) :
 				echo '<tr>';
 				echo '<td></td>';
-				echo '<td>' . $paciente->idPaciente . '</td>';
+				echo '<td>' . $paciente->idPacientes . '</td>';
 				echo '<td>' . $paciente->nome . '</td>';
-				echo '<td>' . $paciente->dtNascimento . '</td>';
 				echo '<td>' . $paciente->sexo . '</td>';
+				echo '<td>' . $paciente->nomeConvenio . '</td>';
+				echo '<td>' . $paciente->codigoAssociado . '</td>';
 				echo '<td>' . $paciente->email . '</td>';
+				echo '<td>' . $paciente->dtNascimento . '</td>';
 				echo '</tr>';
 			endforeach;
 			?>

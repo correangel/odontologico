@@ -74,7 +74,7 @@ ENGINE = InnoDB;
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `odontologico`.`Convenios` (
   `idConvenios` INT NOT NULL AUTO_INCREMENT,
-  `nome` VARCHAR(100) NULL,
+  `nomeConvenio` VARCHAR(100) NULL,
   `diaPagamento` VARCHAR(2) NULL,
   `desconto` VARCHAR(3) NULL,
   `telefone` VARCHAR(30) NULL,

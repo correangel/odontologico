@@ -65,4 +65,8 @@
 			$this->load->view('template', $data);
 		}
 		
+		function viewOdontograma(){
+			
+		}
+		
 	}

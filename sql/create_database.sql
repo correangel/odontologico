@@ -47,9 +47,9 @@ ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
--- Table `odontologico`.`Endereços`
+-- Table `odontologico`.`Enderecos`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `odontologico`.`Endereços` (
+CREATE TABLE IF NOT EXISTS `odontologico`.`Enderecos` (
   `idEndereços` INT NOT NULL AUTO_INCREMENT,
   `logradouro` VARCHAR(255) NULL,
   `numero` VARCHAR(7) NULL,
@@ -107,6 +107,7 @@ CREATE TABLE IF NOT EXISTS `odontologico`.`Odontogramas` (
   `idOdontogramas` INT NOT NULL AUTO_INCREMENT,
   `Pacientes_idPacientes` INT NOT NULL,
   `descricao` TEXT(65535) NULL,
+  `dataOdontograma` DATE NOT NULL,
   PRIMARY KEY (`idOdontogramas`),
   INDEX `fk_Odontogramas_Pacientes1_idx` (`Pacientes_idPacientes` ASC),
   CONSTRAINT `fk_Odontogramas_Pacientes1`

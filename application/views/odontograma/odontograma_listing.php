@@ -2,12 +2,26 @@
 	<h2><?php echo $headline; ?></h2>
 </div>
 <br>
+
+<div class="panel panel-default">
+	<div class="panel-heading">
+		<h4 class="panel-title"><?php echo $odontogramas[0]->nome . " " . $odontogramas[0]->dataOdontograma; ?></h3>
+	</div>
+	<div class="panel-body">
+		<?php echo $odontogramas[0]->descricao; ?>
+	</div>
+	<div class="panel-footer"><a href="<?php echo base_url() . "odontograma/edit/" . $odontogramas[0]->idOdontogramas ?>"><span class="glyphicon glyphicon-pencil"></a></div>
+</div>
+
+
+
 <div class="table-responsive">
 	<table id="tabela"
 		class="table table-condensed table-hover table-striped">
 		<thead>
 			<tr>
-				<th data-column-id="commands" data-formatter="commands"	data-sortable="false">Opções</th>
+				<th data-column-id="commands" data-formatter="commands"
+					data-sortable="false">Opções</th>
 				<th data-column-id="id" data-type="numeric">ID</th>
 				<th data-column-id="nome" data-order="asc">Nome</th>
 				<th data-column-id="sexo">Sexo</th>
@@ -20,7 +34,7 @@
 		</thead>
 		<tbody>
 			<?php
-			foreach ( $pacientes->result() as $paciente ) :
+			foreach ( $pacientes->result () as $paciente ) :
 				echo '<tr>';
 				echo '<td></td>';
 				echo '<td>' . $paciente->idPacientes . '</td>';
@@ -32,7 +46,8 @@
 				echo '<td>' . $paciente->email . '</td>';
 				echo '<td>' . $paciente->dtNascimento . '</td>';
 				echo '</tr>';
-			endforeach;
+			endforeach
+			;
 			?>
 	  </tbody>
 	</table>
@@ -56,7 +71,7 @@ $(document).ready(function(){
     }).end().find(".command-delete").on("click", function(e){
     	window.location.replace("delete/" + $(this).data("row-id"));
     }).end().find(".command-odonto").on("click", function(e){
-    	window.location.href = "<?php echo base_url() . "index.php/odontograma/listing" ?>/" + $(this).data("row-id");
+    	window.location.href = "<?php echo base_url("odontograma/listing/") ?>" + $(this).data("row-id");
     });
 });
 });

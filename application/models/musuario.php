@@ -2,7 +2,13 @@
 
 	class MUsuario extends CI_Model{
 
+		//function addUsuario($data, $pass){
 		function addUsuario($data){
+			//$usuario = array(
+				//'login' => $data['login'], 
+				//'senha' => $pass, 
+				//'perfil' => $data['perfil']
+			//);
 			$this->db->insert('usuario', $data);
 		}
 

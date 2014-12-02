@@ -28,6 +28,9 @@ class Usuario extends CI_Controller {
 	function create()
     {
         $this->load->model('MUsuario','',TRUE);
+        //$this->load->library('encrypt');
+        //$senha = $this->encrypt->encode($_POST['senha']);
+        //$this->MUsuario->addUsuario($_POST, $senha);
         $this->MUsuario->addUsuario($_POST);
         redirect('usuario/listing', 'refresh');
     }

@@ -5,7 +5,7 @@ class MLogin extends CI_Model{
     function validate(){
         $username = $this->security->xss_clean($this->input->post('username'));
         $password = $this->security->xss_clean($this->input->post('password'));
-        
+        //$senha = $this->encrypt->encode($password);
         $this->db->where('login', $username);
         $this->db->where('senha', $password);
 		

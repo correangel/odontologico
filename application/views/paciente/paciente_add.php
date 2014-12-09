@@ -14,7 +14,7 @@
 			
 				<div class="form-group col-xs-6">
 					<label for="nome">Nome</label>
-			    	<input type="text" id="nome" name="nome" class="form-control" placeholder="Nome Completo" required autofocus>
+			    	<input type="text" id="nome" name="nome" data-toggle="tooltip" data-placement="left" title="nome completo do paciente" class="form-control" placeholder="Nome Completo" required autofocus>
 				</div>
 				
 				<div class="form-group col-xs-2">

@@ -57,7 +57,7 @@
 			$this->db->join('convenios', 'convenios.idConvenios = convenios_pacientes.Convenios_idConvenios');
 			$this->db->join('telefones', 'telefones.Pacientes_idPacientes = pacientes.idPacientes');
 			$this->db->limit(1);
-			return $this->db->get_where('pacientes', array('ativo'=>'S'));
+			return $this->db->get_where('pacientes', array('ativo_convenio'=>'S'));
 		}
 		
 		function getPaciente($id){

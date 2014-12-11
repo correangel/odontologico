@@ -5,6 +5,21 @@
 	</div>
 	
 	<div class="row">
+		<div class="form-group col-xs-12 odontograma">
+			
+		</div>
+	</div>
+	
+	<?php foreach ($odontogramas->result() as $odontograma) :
+	echo
+	"<div class=\"row\">"+
+		"<div class=\"form-group col-xs-12\">"+
+			$odontograma->dataOdontograma . " - " . $odontograma->descricao+
+		"</div>"+
+	"</div>";
+	endforeach;
+	?>
+	<div class="row">
 		<div class="form-group col-xs-2">
 			<label for="dataOdontograma">Data da consulta</label>
 	    	<input type="date" value="<?php echo date('Y-m-d'); ?>" id="dataOdontograma" name="dataOdontograma" class="form-control" required>

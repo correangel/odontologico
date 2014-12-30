@@ -5,7 +5,7 @@ class MConvenio extends CI_Model {
 	}
 	function listConvenios() {
 		return $this->db->get_where ( 'convenios', array (
-				'ativo' => 'S' 
+				'ativo_convenio' => 'S' 
 		) );
 	}
 	function getConvenio($id) {
@@ -19,7 +19,7 @@ class MConvenio extends CI_Model {
 	}
 	function inativarConvenio($id) {
 		$data = array (
-				'ativo' => 'N' 
+				'ativo_convenio' => 'N' 
 		);
 		$this->db->where ( 'idConvenios', $id );
 		$this->db->update ( 'convenios', $data );

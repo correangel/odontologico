@@ -79,7 +79,7 @@ CREATE TABLE IF NOT EXISTS `odontologico`.`Convenios` (
   `desconto` VARCHAR(3) NULL,
   `telefone` VARCHAR(30) NULL,
   `contato` VARCHAR(50) NULL,
-  `ativo` ENUM('S', 'N') NULL DEFAULT 'S',
+  `ativo_convenio` ENUM('S', 'N') NULL DEFAULT 'S',
   PRIMARY KEY (`idConvenios`))
 ENGINE = InnoDB;
 

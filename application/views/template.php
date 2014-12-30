@@ -7,14 +7,14 @@
 		
 		<!-- CSS -->
 		<link rel="stylesheet" href="<?php echo base_url(); ?>assets/css/estilo.css" type="text/css" media="screen" charset="utf-8" />
-		<link rel="stylesheet" href="<?php echo base_url(); ?>assets/css/bootstrap.min.css" type="text/css" media="screen" charset="utf-8" />
+		<link rel="stylesheet" href="<?php echo base_url(); ?>assets/css/semantic.min.css" type="text/css" media="screen" charset="utf-8" />
 		<link rel="stylesheet" href="<?php echo base_url(); ?>assets/css/jquery.bootgrid.min.css" type="text/css" media="screen" charset="utf-8" />
 		
 		
 		<!-- JavaScript -->
 		<script type="text/javascript" src="<?php echo base_url() . 'assets/js/jquery-1.11.1.min.js' ?>"></script>
 		<script type="text/javascript" src="<?php echo base_url() . 'assets/js/jquery.maskedinput.js' ?>"></script>
-		<script type="text/javascript" src="<?php echo base_url() . 'assets/js/bootstrap.min.js' ?>"></script>
+		<script type="text/javascript" src="<?php echo base_url() . 'assets/js/semantic.min.js' ?>"></script>
 		<script type="text/javascript" src="<?php echo base_url() . 'assets/js/jquery.bootgrid.min.js' ?>"></script>
 		<script type="text/javascript" src="<?php echo base_url() . 'assets/js/scripts.js' ?>"></script>
 

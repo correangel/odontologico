@@ -13,8 +13,9 @@ class Odontograma extends CI_Controller {
 		}
 	}
 	function add() {
+		$id = $this->uri->segment ( 3 );
 		$this->load->model ('MOdontograma', '', TRUE);
-		$data ['odontogramas'] = $this->MOdontograma->listOdontogramas();
+		$data ['odontogramas'] = $this->MOdontograma->listOdontogramas($id);
 		$data ['title'] = "Cadastro de Odontograma - Odontológico";
 		$data ['headline'] = "Cadastro de Odontograma";
 		$data ['include'] = "odontograma/odontograma_add";
@@ -50,7 +51,7 @@ class Odontograma extends CI_Controller {
 		$this->load->model ( 'MOdontograma', '', TRUE );
 		$numeroOdontogramas = $this->MOdontograma->countOdontogramas ( $id );
 		if ($numeroOdontogramas > 0) {
-			$data ['odontogramas'] = $this->MOdontograma->listOdontogramas ( $id )->result ();
+			$data ['odontogramas'] = $this->MOdontograma->listOdontogramas ( $id )->result();
 			$data ['title'] = "Listagem de Odontogramas - Odontológico";
 			$data ['headline'] = "Listagem de Odontogramas";
 			$data ['include'] = 'odontograma/odontograma_listing';

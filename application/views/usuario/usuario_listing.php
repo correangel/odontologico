@@ -3,12 +3,10 @@
 </div>
 <br>
 <div class="table-responsive">
-	<table id="tabela"
-		class="table table-condensed table-hover table-striped">
+	<table id="tabela" class="table-responsive table-striped table-hover table-condensed">
 		<thead>
 			<tr>
-				<th data-column-id="commands" data-formatter="commands"
-					data-sortable="false">Opções</th>
+				<th data-column-id="commands" data-formatter="commands"	data-sortable="false">Opções</th>
 				<th data-column-id="id" data-type="numeric">ID</th>
 				<th data-column-id="login" data-order="asc">Login</th>
 				<th data-column-id="perfil">Perfil</th>

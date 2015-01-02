@@ -4,7 +4,7 @@
 <br>
 <div class="table-responsive">
 	<table id="tabela"
-		class="table table-condensed table-hover table-striped">
+		class="table-responsive table-striped table-hover table-condensed">
 		<thead>
 			<tr>
 				<th data-column-id="commands" data-formatter="commands"
@@ -34,10 +34,6 @@
 	  </tbody>
 	</table>
 </div>
-
-<br>
-<br>
-<br>
 
 <script>
 $(document).ready(function(){ 

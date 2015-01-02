@@ -4,8 +4,6 @@
 		<h2><?php echo $headline ?></h3>
 	</div>
 	
-
-	
 	<div class="panel panel-info">
 		<div class="panel-heading">
 			<h4 class="panel-title">Dados Básicos</h3>
@@ -16,17 +14,17 @@
 
 			<div class="row">
 			
-				<div class="form-group col-xs-6">
+				<div class="form-group col-sm-6">
 					<label for="nome">Nome</label>
 			    	<input type="text" value="<?php echo $paciente[0]->nome; ?>" id="nome" name="nome" class="form-control" placeholder="Nome Completo" required autofocus>
 				</div>
 				
-				<div class="form-group col-xs-2">
+				<div class="form-group col-sm-2">
 					<label for="dtNascimento">Data de Nascimento</label>
 			    	<input type="date" value="<?php echo $paciente[0]->dtNascimento; ?>" id="dtNascimento" name="dtNascimento" class="form-control" required>
 				</div>
 				
-				<div class="form-group radio col-xs-4 btn-group"  data-toggle="buttons">
+				<div class="form-group radio col-sm-4 btn-group"  data-toggle="buttons">
 					
 					<label class="btn btn-default <?php if($paciente[0]->sexo == "M"){ echo 'active'; } else { echo ''; }  ?>">
 						<input type="radio" name="sexo" id="sexo1" value="M"   <?php if($paciente[0]->sexo == "M"){ echo 'checked'; } else { echo ''; }  ?>>
@@ -43,7 +41,7 @@
 			
 			<div class="row">
 			
-				<div class="form-group col-xs-4">
+				<div class="form-group col-sm-4">
 					<label for="convenio">Convênio</label>
 				    <select name="convenio" class="form-control" required>
 				    	<option></option>
@@ -60,12 +58,12 @@
 				
 				<input type="hidden" value="<?php echo $paciente[0]->Convenios_idConvenios ?>" name="convenioAntigo">
 			
-				<div class="form-group  col-xs-4">
+				<div class="form-group  col-sm-4">
 					<label for="codigoAssociado">Número Associado</label>
 			    	<input type="text" value="<?php echo $paciente[0]->codigoAssociado; ?>" id="codigoAssociado" name="codigoAssociado" class="form-control">
 				</div>
 				
-				<div class="form-group  col-xs-4">
+				<div class="form-group  col-sm-4">
 					<label for="email">Email</label>
 			    	<input type="email" value="<?php echo $paciente[0]->email; ?>" id="email" name="email" class="form-control" placeholder="exemplo@gmail.com">
 				</div>
@@ -74,12 +72,12 @@
 			
 			<div class="row">
 				<input type="hidden" name="idTel1" value="<?php echo $telefone[0]->idTelefones; ?>" >
-				<div class="form-group col-xs-2">
+				<div class="form-group col-sm-2">
 					<label for="tel1">Telefone 1</label>
 			    	<input type="tel" value="<?php echo $telefone[0]->telefone; ?>" id="tel1" name="tel1" class="form-control telefone" placeholder="Telefone">
 				</div>
 				
-				<div class="form-group col-xs-2">
+				<div class="form-group col-sm-2">
 					<label for="tipoTel1">Tipo</label>
 				    <select name="tipoTel1" class="form-control">
 				    	<option value="Celular" <?php if($telefone[0]->tipo == "Celular"){echo 'selected="selected"';}else{echo '';} ?>>Celular</option>
@@ -88,12 +86,12 @@
 				    </select>
 				</div>
 				<input type="hidden" name="idTel2" value="<?php echo $telefone[1]->idTelefones; ?>" >
-				<div class="form-group col-xs-2">
+				<div class="form-group col-sm-2">
 					<label for="tel2">Telefone 2</label>
 			    	<input type="tel" value="<?php echo $telefone[1]->telefone; ?>" id="tel2" name="tel2" class="form-control telefone" placeholder="Telefone">
 				</div>
 				
-				<div class="form-group col-xs-2">
+				<div class="form-group col-sm-2">
 					<label for="tipoTel2">Tipo</label>
 				    <select name="tipoTel2" class="form-control">
 				    	<option value="Celular" <?php if($telefone[1]->tipo == "Celular"){echo 'selected="selected"';}else{echo '';} ?>>Celular</option>
@@ -102,12 +100,12 @@
 				    </select>
 				</div>
 				<input type="hidden" name="idTel3" value="<?php echo $telefone[2]->idTelefones; ?>" >
-				<div class="form-group col-xs-2">
+				<div class="form-group col-sm-2">
 					<label for="tel3">Telefone 3</label>
 			    	<input type="tel" value="<?php echo $telefone[2]->telefone; ?>" id="tel3" name="tel3" class="form-control telefone" placeholder="Telefone">
 				</div>
 				
-				<div class="form-group col-xs-2">
+				<div class="form-group col-sm-2">
 					<label for="tipoTel3">Tipo</label>
 				    <select name="tipoTel3" class="form-control">
 				    	<option value="Celular" <?php if($telefone[2]->tipo == "Celular"){echo 'selected="selected"';}else{echo '';} ?>>Celular</option>
@@ -129,22 +127,22 @@
 		
 			<div class="row">
 			
-				<div class="form-group col-xs-2">
+				<div class="form-group col-sm-2">
 					<label for="cep">Cep</label>
 			    	<input type="text" value="<?php echo $paciente[0]->cep; ?>" id="cep" name="cep" class="form-control cep" placeholder="Cep">
 				</div>
 			
-				<div class="form-group col-xs-4">
+				<div class="form-group col-sm-4">
 					<label for="rua">Rua</label>
 			    	<input type="text" value="<?php echo $paciente[0]->logradouro; ?>" id="rua" name="logradouro" class="form-control" placeholder="Rua" required>
 				</div>
 				
-				<div class="form-group col-xs-2">
+				<div class="form-group col-sm-2">
 					<label for="numero">Número</label>
 			    	<input type="text" value="<?php echo $paciente[0]->numero; ?>" id="numero" name="numero" class="form-control" placeholder="Número" required>
 				</div>
 				
-				<div class="form-group col-xs-2">
+				<div class="form-group col-sm-2">
 					<label for="complemento">Complemento</label>
 			    	<input type="text" value="<?php echo $paciente[0]->complemento; ?>" id="complemento" name="complemento" class="form-control" placeholder="Complemento">
 				</div>
@@ -153,17 +151,17 @@
 			
 			<div class="row">
 			
-				<div class="form-group col-xs-4">
+				<div class="form-group col-sm-4">
 					<label for="bairro">Bairro</label>
 			    	<input type="text" value="<?php echo $paciente[0]->bairro; ?>" id="bairro" name="bairro" class="form-control" placeholder="Bairro" required>
 				</div>
 			
-				<div class="form-group col-xs-4">
+				<div class="form-group col-sm-4">
 					<label for="cidade">Cidade</label>
 			    	<input type="text" value="<?php echo $paciente[0]->cidade; ?>" id="cidade" name="cidade" class="form-control" placeholder="Cidade" required>
 				</div>
 				
-				<div class="form-group col-xs-2">
+				<div class="form-group col-sm-2">
 					<label for="uf">Estado</label>
 			    	<!-- <input type="text" id="uf" name="uf" class="form-control" placeholder="Estado"> -->
 			    	<select name="uf" class="uf form-control" id="uf">
@@ -201,27 +199,22 @@
 		
 		</div><!-- /.panel-body -->
 	</div><!-- /.panel -->
-	
-	
 
 	<button type="submit" class="btn btn-primary">Atualizar</button>
 	
-	<br><br><br><br><br><br>
-
 </form>
 
-	
-	<script type="text/javascript" >
+<script type="text/javascript" >
             $(document).ready(function() {
                 $("#cep").blur(function() {   
                     var cep = $(this).val();
                     var validacep = /^[0-9]{5}-?[0-9]{3}$/;
                     if(validacep.test(cep)) {
-                        $("#rua").val("...")
-                        $("#bairro").val("...")
-                        $("#cidade").val("...")
-                        $("#uf").val("...")
-                        $("#ibge").val("...")
+                        $("#rua").val("...");
+                        $("#bairro").val("...");
+                        $("#cidade").val("...");
+                        $("#uf").val("...");
+                        $("#ibge").val("...");
                         $.getJSON("http://viacep.com.br/ws/"+ cep +"/json/?callback=?", function(dados) {
                             if (!("erro" in dados)) {
                                 $("#rua").val(dados.logradouro);
@@ -243,4 +236,4 @@
                     }
                 });
             });
-        </script>
+</script>

@@ -7,14 +7,14 @@
 		
 		<!-- CSS -->
 		<link rel="stylesheet" href="<?php echo base_url(); ?>assets/css/estilo.css" type="text/css" media="screen" charset="utf-8" />
-		<link rel="stylesheet" href="<?php echo base_url(); ?>assets/css/semantic.min.css" type="text/css" media="screen" charset="utf-8" />
-		<link rel="stylesheet" href="<?php echo base_url(); ?>assets/css/jquery.bootgrid.min.css" type="text/css" media="screen" charset="utf-8" />
-		
+		<!-- <link rel="stylesheet" href="<?php echo base_url(); ?>assets/css/bootstrap.min.css" type="text/css" media="screen" charset="utf-8" /> -->
+		<link rel="stylesheet" href="<?php echo base_url(); ?>assets/css/bootstrap-theme.min.css" type="text/css" media="screen" charset="utf-8" />
+		<link rel="stylesheet" href="<?php echo base_url(); ?>assets/css/jquery.bootgrid.min.css" type="text/css" media="screen" charset="utf-8" />	
 		
 		<!-- JavaScript -->
 		<script type="text/javascript" src="<?php echo base_url() . 'assets/js/jquery-1.11.1.min.js' ?>"></script>
 		<script type="text/javascript" src="<?php echo base_url() . 'assets/js/jquery.maskedinput.js' ?>"></script>
-		<script type="text/javascript" src="<?php echo base_url() . 'assets/js/semantic.min.js' ?>"></script>
+		<script type="text/javascript" src="<?php echo base_url() . 'assets/js/bootstrap.min.js' ?>"></script>
 		<script type="text/javascript" src="<?php echo base_url() . 'assets/js/jquery.bootgrid.min.js' ?>"></script>
 		<script type="text/javascript" src="<?php echo base_url() . 'assets/js/scripts.js' ?>"></script>
 
@@ -80,6 +80,9 @@
                             		<li><?php echo anchor('odontologico/sair', '<span class="glyphicon glyphicon-log-out"></span> Sair'); ?></li>
                             	</ul>
                             </li>
+							<li class="inactive">
+                            	<p class="navbar-text">MVPDEV Sistemas</p>
+                            </li>
                         </ul>
                     </div><!-- .navbar-collapse -->
                 <!--</div>-->
@@ -89,12 +92,6 @@
         <div class="container">
             <?php $this->load->view($include);?>
         </div>
-        
-        <footer class="footer">
-            <div class="container">
-                <p class="text-muted">MVPDEV Sistemas Digitais - mvpdev@gmail.com</p>
-            </div>
-        </footer>
 		
 	</body>
 </html>

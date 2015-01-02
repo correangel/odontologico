@@ -6,7 +6,7 @@
 	
 	</div>
 
-	<div class="panel panel-info">
+	<div class="panel panel-primary">
 		<div class="panel-heading">
 			<h4 class="panel-title">Dados Básicos</h4>
 		</div>
@@ -46,7 +46,7 @@
 						<option></option>
 				    	<?php
 							foreach ( $convenios->result () as $convenio ) :
-								echo ('<option value="' . $convenio->idConvenios . '">' . $convenio->nome_convenio . '</option>');
+								echo ('<option value="' . $convenio->idConvenios . '">' . $convenio->nomeConvenio . '</option>');
 							endforeach;
 						?>
 				    </select>
@@ -116,7 +116,7 @@
 	</div>
 	<!-- /.panel -->
 
-	<div class="panel panel-info">
+	<div class="panel panel-primary">
 		<div class="panel-heading">
 			<h4 class="panel-title">Endereço</h4>
 		</div>
@@ -198,7 +198,24 @@
 		<!-- /.panel-body -->
 	</div>
 	<!-- /.panel -->
+	
+	<div class="panel panel-primary">
+		<div class="panel-heading">
+			<h4 class="panel-title">Anamnese</h4>
+		</div>
+		<div class="panel-body">
+
+			<div class="row">
+				<div class="form-group col-sm-12">
+					<label for="anamnese">Descrição</label>
+					<textarea rows="10" cols="40" class="form-control" name="anamnese" id="anamnese"></textarea>
+				</div>
+			</div>
+		</div>
+	</div>
+	
 	<button type="submit" class="btn btn-primary">Cadastrar</button>
+	<button type="reset" class="btn btn-default">Limpar</button>
 
 </form>
 

@@ -49,6 +49,12 @@
 				'ativo' => 'S'
 			);
 			$this->db->insert('convenios_pacientes', $convenio);
+			
+			$anamnese = array( 
+					'Pacientes_idPacientes' => $id,
+					'descricao' => $data['anamnese']
+			);
+			$this->db->insert('anamneses', $anamnese);
 		}
 		
 		function listPacientes(){
@@ -69,6 +75,10 @@
 		
 		function getTelefones($id){
 			return $this->db->get_where('telefones', array('Pacientes_idPacientes' => $id));
+		}
+		
+		function getAnamneses($id){
+			return $this->db->get_where('anamneses', array('Pacientes_idPacientes' => $id));
 		}
 		
 		function updatePaciente($id, $data){
@@ -131,6 +141,12 @@
 			//$this->db->where('Convenios_idConvenios', $data['convenio']);
 			//$this->db->where('Pacientes_idPacientes', $id);
 			$this->db->insert('convenios_pacientes', $convenio);
+			
+			$anamnese = array(
+					'Pacientes_idPacientes' => $id,
+					'descricao' => $data['anamnese']
+			);
+			$this->db->insert('anamneses', $anamnese);
 		}
 		
 		function deletePaciente($id){

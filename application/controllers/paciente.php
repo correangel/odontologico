@@ -17,9 +17,9 @@ class Paciente extends CI_Controller {
 		$data ['headline'] = "Cadastro de Pacientes";
 		$data ['include'] = "paciente/paciente_add";
 		$this->load->model ( 'MPaciente', '', TRUE );
-		$data ['pacientes'] = $this->MPaciente->listPacientes ();
+		$data ['pacientes'] = $this->MPaciente->listPacientes();
 		$this->load->model ( 'MConvenio', '', TRUE );
-		$data ['convenios'] = $this->MConvenio->listConvenios ();
+		$data ['convenios'] = $this->MConvenio->listConvenios();
 		$this->load->view ( 'template', $data );
 	}
 	function create() {
@@ -32,6 +32,7 @@ class Paciente extends CI_Controller {
 		$this->load->model ( 'MPaciente', '', TRUE );
 		$data ['paciente'] = $this->MPaciente->getPaciente ( $id )->result ();
 		$data ['telefone'] = $this->MPaciente->getTelefones ( $id )->result ();
+		$data ['anamnese'] = $this->MPaciente->getAnamneses ( $id )->result ();
 		$this->load->model ( 'MConvenio', '', TRUE );
 		$data ['convenios'] = $this->MConvenio->listConvenios ();
 		$data ['title'] = "Modificar Pacientes - Odontológico";

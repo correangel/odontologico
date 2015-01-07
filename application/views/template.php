@@ -58,6 +58,13 @@
                                     <li class="inactive"><?php echo anchor('convenio/add', 'Cadastrar Convênio'); ?></li>
                                 </ul>
                             </li>
+                            <li class="dropdown <?php if($this->uri->segment(1) == 'dentista'){ echo 'active'; } else { echo ''; } ?>">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Dentistas <span class="caret"></span></a>
+                                <ul class="dropdown-menu" role="menu">
+                                    <li class="inactive"><?php echo anchor('dentista/listing', 'Listagem'); ?></li>
+                                    <li class="inactive"><?php echo anchor('dentista/add', 'Cadastrar Dentista'); ?></li>
+                                </ul>
+                            </li>
                             <li class="dropdown <?php if($this->uri->segment(1) == 'agenda'){ echo 'active'; } else { echo ''; } ?>">
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Agenda <span class="caret"></span></a>
                                 <ul class="dropdown-menu" role="menu">

@@ -79,7 +79,7 @@ CREATE TABLE IF NOT EXISTS `odontologico`.`Convenios` (
   `desconto` VARCHAR(3) NULL,
   `telefone` VARCHAR(30) NULL,
   `contato` VARCHAR(50) NULL,
-  `ativo_convenio` ENUM('S', 'N') NULL DEFAULT 'S',
+  `ativo` ENUM('S', 'N') NULL DEFAULT 'S',
   PRIMARY KEY (`idConvenios`))
 ENGINE = InnoDB;
 
@@ -126,7 +126,7 @@ CREATE TABLE IF NOT EXISTS `odontologico`.`Convenios_Pacientes` (
   `Convenios_idConvenios` INT NOT NULL AUTO_INCREMENT,
   `Pacientes_idPacientes` INT NOT NULL,
   `codigoAssociado` VARCHAR(50) NULL,
-  `ativo` ENUM('S', 'N') NULL,
+  `ativo_convenio` ENUM('S', 'N') NULL,
   PRIMARY KEY (`Convenios_idConvenios`, `Pacientes_idPacientes`),
   INDEX `fk_Convenios_has_Pacientes_Pacientes1_idx` (`Pacientes_idPacientes` ASC),
   INDEX `fk_Convenios_has_Pacientes_Convenios1_idx` (`Convenios_idConvenios` ASC),
@@ -144,13 +144,63 @@ ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
+-- Table `odontologico`.`Agenda`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `odontologico`.`Agenda` (
+  `idAgenda` INT NOT NULL AUTO_INCREMENT,
+  `segunda` VARCHAR(45) NULL,
+  `terca` VARCHAR(45) NULL,
+  `quarta` VARCHAR(45) NULL,
+  `quinta` VARCHAR(45) NULL,
+  `sexta` VARCHAR(45) NULL,
+  `sabado` VARCHAR(45) NULL,
+  `intervalo` VARCHAR(45) NULL,
+  `qtd_encaixes` INT NULL,
+  PRIMARY KEY (`idAgenda`))
+ENGINE = InnoDB;
+
+
+-- -----------------------------------------------------
 -- Table `odontologico`.`Dentistas`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `odontologico`.`Dentistas` (
-  `idDentistas` INT NOT NULL,
+  `idDentistas` INT NOT NULL AUTO_INCREMENT,
   `nome` VARCHAR(255) NULL,
   `telefoneCelular` VARCHAR(30) NULL,
-  PRIMARY KEY (`idDentistas`))
+  `Agenda_idAgenda` INT NOT NULL,
+  PRIMARY KEY (`idDentistas`),
+  INDEX `fk_Dentistas_Agenda1_idx` (`Agenda_idAgenda` ASC),
+  CONSTRAINT `fk_Dentistas_Agenda1`
+    FOREIGN KEY (`Agenda_idAgenda`)
+    REFERENCES `odontologico`.`Agenda` (`idAgenda`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
+ENGINE = InnoDB;
+
+
+-- -----------------------------------------------------
+-- Table `odontologico`.`Consulta`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `odontologico`.`Consulta` (
+  `Dentistas_idDentistas` INT NOT NULL,
+  `Pacientes_idPacientes` INT NOT NULL,
+  `dia` DATE NULL,
+  `hora` VARCHAR(5) NULL,
+  `compareceu` TINYINT(1) NULL,
+  `encaixe` TINYINT(1) NULL,
+  PRIMARY KEY (`Dentistas_idDentistas`, `Pacientes_idPacientes`),
+  INDEX `fk_Dentistas_has_Pacientes_Pacientes1_idx` (`Pacientes_idPacientes` ASC),
+  INDEX `fk_Dentistas_has_Pacientes_Dentistas1_idx` (`Dentistas_idDentistas` ASC),
+  CONSTRAINT `fk_Dentistas_has_Pacientes_Dentistas1`
+    FOREIGN KEY (`Dentistas_idDentistas`)
+    REFERENCES `odontologico`.`Dentistas` (`idDentistas`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION,
+  CONSTRAINT `fk_Dentistas_has_Pacientes_Pacientes1`
+    FOREIGN KEY (`Pacientes_idPacientes`)
+    REFERENCES `odontologico`.`Pacientes` (`idPacientes`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
 ENGINE = InnoDB;
 
 

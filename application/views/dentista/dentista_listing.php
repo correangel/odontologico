@@ -2,6 +2,9 @@
 	<h2><?php echo $headline; ?></h2>
 </div>
 <br>
+
+<button type="button" class="btn btn-primary" id="novoDentista"><span class="glyphicon glyphicon-plus"></span> Cadastrar novo dentista</button>
+
 <div class="table-responsive">
 	<table id="tabela"
 		class="table-responsive table-striped table-hover table-condensed">
@@ -49,4 +52,9 @@ $(document).ready(function(){
     });
 });
 });
+
+$("#novoDentista").click(function(){
+	window.location.replace("add/");
+});
+
 </script>

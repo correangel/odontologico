@@ -21,9 +21,9 @@
 	</head>
 	
 	<body>
-        <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+        <nav class="navbar navbar-default" role="navigation">
             <!--<div class="navbar-inner">-->
-                <div class="container">
+                <div class="container-fluid">
                     <div class="navbar-header">
                         <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
                           <span class="icon-bar"></span>
@@ -34,50 +34,26 @@
                     </div>
                     <div id="navbar" class="navbar-collapse collapse">
                         <ul class="nav navbar-nav">
-                            <li <?php if($this->uri->segment(1) == 'odontologico' && $this->uri->segment(2) == 'index'){ echo 'class="active"'; } else { echo ''; } ?> ><?php echo anchor('odontologico/index', 'Inicial'); ?></li>
-                            <li class="dropdown <?php if($this->uri->segment(1) == 'usuario'){ echo 'active'; } else { echo ''; } ?>">
-                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Usuários <span class="caret"></span></a>
-                                <ul class="dropdown-menu" role="menu">
-                                    <li><?php echo anchor('usuario/listing', 'Listagem'); ?></li>
-                                    <li><?php echo anchor('usuario/add', 'Cadastrar Usuário'); ?></li>
-                                    <li class="divider"></li>
-                                    <li><?php echo anchor('usuario/listing_inativos', 'Ativar Usuário'); ?></li>
-                                </ul>
+                            <li <?php if($this->uri->segment(1) == 'odontologico' && $this->uri->segment(2) == 'index'){ echo 'class="active"'; } else { echo ''; } ?> >
+                            	<?php echo anchor('odontologico/index', 'Inicial'); ?>
                             </li>
-                            <li class="dropdown <?php if($this->uri->segment(1) == 'paciente'){ echo 'active'; } else { echo ''; } ?>">
-                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Pacientes <span class="caret"></span></a>
-                                <ul class="dropdown-menu" role="menu">
-                                    <li><?php echo anchor('paciente/listing', 'Listagem'); ?></li>
-                                    <li><?php echo anchor('paciente/add', 'Cadastrar Paciente'); ?></li>
-                                </ul>
+                            <li <?php if($this->uri->segment(1) == 'usuario'){ echo 'class="active"'; } else { echo ''; } ?> >
+                                <?php echo anchor('usuario/listing', 'Usuários'); ?>
                             </li>
-                            <li class="dropdown <?php if($this->uri->segment(1) == 'convenio'){ echo 'active'; } else { echo ''; } ?>">
-                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Convênios <span class="caret"></span></a>
-                                <ul class="dropdown-menu" role="menu">
-                                    <li class="inactive"><?php echo anchor('convenio/listing', 'Listagem'); ?></li>
-                                    <li class="inactive"><?php echo anchor('convenio/add', 'Cadastrar Convênio'); ?></li>
-                                </ul>
+                            <li <?php if($this->uri->segment(1) == 'paciente'){ echo 'class="active"'; } else { echo ''; } ?> >
+                                <?php echo anchor('paciente/listing', 'Pacientes'); ?>
                             </li>
-                            <li class="dropdown <?php if($this->uri->segment(1) == 'dentista'){ echo 'active'; } else { echo ''; } ?>">
-                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Dentistas <span class="caret"></span></a>
-                                <ul class="dropdown-menu" role="menu">
-                                    <li class="inactive"><?php echo anchor('dentista/listing', 'Listagem'); ?></li>
-                                    <li class="inactive"><?php echo anchor('dentista/add', 'Cadastrar Dentista'); ?></li>
-                                </ul>
+                            <li <?php if($this->uri->segment(1) == 'convenio'){ echo 'class="active"'; } else { echo ''; } ?> >
+                                <?php echo anchor('convenio/listing', 'Convênios'); ?>
                             </li>
-                            <li class="dropdown <?php if($this->uri->segment(1) == 'agenda'){ echo 'active'; } else { echo ''; } ?>">
-                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Agenda <span class="caret"></span></a>
-                                <ul class="dropdown-menu" role="menu">
-                                    <li class="inactive"><?php echo anchor('agenda/listing', 'Agenda'); ?></li>
-                                </ul>
+                            <li <?php if($this->uri->segment(1) == 'dentista'){ echo 'class="active"'; } else { echo ''; } ?> >
+                                <?php echo anchor('dentista/listing', 'Dentistas'); ?>
                             </li>
-                            <li class="dropdown <?php if($this->uri->segment(1) == 'financeiro'){ echo 'active'; } else { echo ''; } ?>">
-                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Financeiro <span class="caret"></span></a>
-                                <ul class="dropdown-menu" role="menu">
-                                    <li class="inactive"><?php echo anchor('financeiro/listing', 'Entradas'); ?></li>
-                                    <li class="inactive"><?php echo anchor('financeiro/add', 'Saídas'); ?></li>
-                                    <li class="inactive"><?php echo anchor('financeiro/listing_itens', 'Orçamentos'); ?></li>
-                                </ul>
+                            <li <?php if($this->uri->segment(1) == 'agenda'){ echo 'class="active"'; } else { echo ''; } ?> >
+                                <?php echo anchor('agenda/listing', 'Agenda'); ?>
+                            </li>
+                            <li <?php if($this->uri->segment(1) == 'financeiro'){ echo 'class="active"'; } else { echo ''; } ?> >
+                                <?php echo anchor('financeiro/listing', 'Financeiro'); ?>
                             </li>
                         </ul>
                         <ul class="nav navbar-nav navbar-right">
@@ -96,7 +72,7 @@
             </div><!-- .container -->
         </nav>
 
-        <div class="container">
+        <div class="container-fluid">
             <?php $this->load->view($include);?>
         </div>
 		

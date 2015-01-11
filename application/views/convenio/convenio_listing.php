@@ -2,6 +2,9 @@
 	<h2><?php echo $headline; ?></h2>
 </div>
 <br>
+
+<button type="button" class="btn btn-primary" id="novoConvenio"><span class="glyphicon glyphicon-plus"></span> Cadastrar novo convênio</button>
+
 <div class="table-responsive">
 	<table id="tabela"
 		class="table-responsive table-striped table-hover table-condensed">
@@ -55,5 +58,9 @@ $(document).ready(function(){
     	window.location.replace("inativa/" + $(this).data("row-id"));
     });
 });
+});
+
+$("#novoConvenio").click(function(){
+	window.location.replace("add/");
 });
 </script>

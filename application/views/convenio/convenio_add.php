@@ -6,7 +6,7 @@
 	
 	<div class="panel panel-primary">
 		<div class="panel-body">
-			<div class="row">
+			<div class="row-fluid">
 				<div class="form-group col-sm-4">
 					<label for="nomeConvenio">Nome do convênio</label>
 			    	<input type="text" id="nomeConvenio" name="nomeConvenio" class="form-control" required>
@@ -26,7 +26,7 @@
 				</div>
 			</div>
 			
-			<div class="row">
+			<div class="row-fluid">
 				<div class="form-group col-sm-2">
 					<label for="telefone">Telefone de contato</label>
 					<input type="tel" id="telefone" name="telefone" class="form-control telefone">

@@ -14,6 +14,54 @@ SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='TRADITIONAL,ALLOW_INVALID_DATES';
 CREATE SCHEMA IF NOT EXISTS `odontologico` DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci ;
 USE `odontologico` ;
 
+--
+-- Estrutura da tabela `perfil`
+--
+
+CREATE TABLE IF NOT EXISTS `perfil` (
+  `id_perfil` int(11) NOT NULL AUTO_INCREMENT,
+  `nome_perfil` varchar(15) NOT NULL,
+  `nivel` int(11) NOT NULL,
+  PRIMARY KEY (`id_perfil`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=3 ;
+
+
+insert into perfil(id_perfil, nome_perfil, nivel) values(1, 'admin', 5);
+insert into perfil(id_perfil, nome_perfil, nivel) values(2, 'user', 2);
+
+--
+-- Estrutura da tabela `setor`
+--
+
+CREATE TABLE IF NOT EXISTS `setor` (
+  `id_setor` int(11) NOT NULL AUTO_INCREMENT,
+  `nome_setor` varchar(30) DEFAULT NULL,
+  PRIMARY KEY (`id_setor`)
+) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=11 ;
+
+
+insert into setor(id_setor, nome_setor) values(1, 'administrador');
+
+-- --------------------------------------------------------
+
+--
+-- Estrutura da tabela `usuario`
+--
+
+CREATE TABLE IF NOT EXISTS `usuario` (
+  `id_usuario` int(11) NOT NULL AUTO_INCREMENT,
+  `login` varchar(20) NOT NULL,
+  `senha` varchar(10) NOT NULL,
+  `perfil` int(11) DEFAULT NULL,
+  `setor` int(11) DEFAULT NULL,
+  `ativo` char(1) NOT NULL DEFAULT 'S',
+  PRIMARY KEY (`id_usuario`),
+  KEY `id_setor` (`setor`)
+) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=29 ;
+
+
+insert into usuario(id_usuario, login, senha, perfil, setor, ativo) values(1, 'admin', 'admin', 1, 1, 'S');
+
 -- -----------------------------------------------------
 -- Table `odontologico`.`Pacientes`
 -- -----------------------------------------------------
